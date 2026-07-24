@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.canvas-container {
+  position: relative;
+  display: inline-block;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.print-area {
+  position: absolute;
+  border: 2px solid #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+  cursor: move;
+  box-sizing: border-box;
+}
+
+.print-area.selected {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  cursor: nwse-resize;
+}
+
+.resize-handle.bottom-right {
+  bottom: -6px;
+  right: -6px;
+}
+
+.resize-handle.top-left {
+  top: -6px;
+  left: -6px;
+}
+
+.resize-handle.top-right {
+  top: -6px;
+  right: -6px;
+}
+
+.resize-handle.bottom-left {
+  bottom: -6px;
+  left: -6px;
+}
+
+/* ─── 进度条流动动画 ─── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-shimmer {
+  animation: shimmer 1.8s ease-in-out infinite;
+}
